@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { RegisterSchema } from '../Models/Register';
-import { restart } from 'nodemon';
+
 
 const User = mongoose.model('User', RegisterSchema);
 

@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from  'body-parser';
-import registerRoute from './src/Routes/appRoutes';
+import mainPageRoute from './src/Routes/mainPageRoutes';
+import registerRoute from './src/Routes/registerRoutes';
 import loginRoute from './src/Routes/loginRoutes';
 
 const app = express();
@@ -18,6 +19,7 @@ mongoose.connect('mongodb://localhost/test', {
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+mainPageRoute(app);
 registerRoute(app);
 loginRoute(app);
 
