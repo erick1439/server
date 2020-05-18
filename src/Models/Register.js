@@ -19,6 +19,10 @@ export const RegisterSchema = new Schema({
     type: String,
     required: "Enter your password"
   },
+  contacts:{
+    type: Array,
+    default: []
+  } ,
   created_date: {
     type: Date,
     default: Date.now
