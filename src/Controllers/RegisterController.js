@@ -10,6 +10,9 @@ export const register = (req, res) => {
     email:  req.body.email
   }, (err, user) => {
 
+    if (err) 
+      res.send(err);
+
     if (user)
       res.send("This email is already link to an account!");
 

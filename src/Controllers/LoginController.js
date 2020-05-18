@@ -1,17 +1,23 @@
 import mongoose from 'mongoose';
-import { LoginSchema } from '../Models/Login';
+import { RegisterSchema } from '../Models/Register';
 
-const Current = mongoose.model('Current', LoginSchema);
+const User = mongoose.model('User', RegisterSchema);
 
 export const login = (req, res) => {
-  let currentUser = new Current(req.body);
 
-  currentUser.save((err, user) => {
-    if (err)
+  User.findOne({
+    email: req.body.email,
+    password: req.body.password
+  }, (err, user) => {
+
+    if (err) 
       res.send(err);
-      
-    // authentication code
 
-    res.send("login successful");
+    if (user)
+      res.json(user);
+
+    else
+      res.send("Wrong email or password");
+
   });
 }
