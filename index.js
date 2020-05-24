@@ -4,6 +4,7 @@ import bodyParser from  'body-parser';
 import mainPageRoute from './src/Routes/mainPageRoutes';
 import registerRoute from './src/Routes/registerRoutes';
 import loginRoute from './src/Routes/loginRoutes';
+import addUser from './src/Routes/addUserRoutes';
 
 const app = express();
 const PORT = 5000;
@@ -22,6 +23,8 @@ app.use(bodyParser.json());
 mainPageRoute(app);
 registerRoute(app);
 loginRoute(app);
+addUser(app);
+
 
 app.get('/', (req, res) => {
   res.send("testing this shit");
