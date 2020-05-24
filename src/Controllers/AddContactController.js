@@ -3,13 +3,17 @@ import { RegisterSchema } from '../Models/Register';
 
 const User = mongoose.model('User', RegisterSchema);
 
-export const addUser = (req, res) => {
+export const addContact = (req, res) => {
 
     User.updateOne(
         { email: req.body.email }, 
         { $push: { contacts: req.body.contact } },
-        () => {
-            res.send("Done");
+        (err) => {
+
+            if (err) 
+                res.send(err);
+                
+            res.send("Added");
         }
     ); 
 }

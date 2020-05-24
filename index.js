@@ -4,7 +4,8 @@ import bodyParser from  'body-parser';
 import mainPageRoute from './src/Routes/mainPageRoutes';
 import registerRoute from './src/Routes/registerRoutes';
 import loginRoute from './src/Routes/loginRoutes';
-import addUser from './src/Routes/addUserRoutes';
+import deleteContactRoute from './src/Routes/deleteContactRoutes';
+import addContactRoute from './src/Routes/addContactRoutes';
 
 const app = express();
 const PORT = 5000;
@@ -23,7 +24,8 @@ app.use(bodyParser.json());
 mainPageRoute(app);
 registerRoute(app);
 loginRoute(app);
-addUser(app);
+addContactRoute(app);
+deleteContactRoute(app);
 
 
 app.get('/', (req, res) => {
