@@ -13,7 +13,7 @@ export const register = (req, res) => {
       res.send(err);
 
     if (user)
-      res.send("This email is already link to an account!");
+      res.send("User already exits");
 
     else {
       let newUser = new User(req.body);

@@ -29,7 +29,7 @@ deleteContactRoute(app);
 
 
 app.get('/', (req, res) => {
-  res.send("testing this shit");
+  res.send("testing the server");
 });
 
 app.listen(PORT, () => {

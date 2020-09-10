@@ -14,10 +14,17 @@ export const login = (req, res) => {
       res.send(err);
 
     if (user)
-      res.json(user);
+    {
+      const response = {firstName : user.firstName,
+        lastName : user.lastName,
+        email : user.email,
+        contacts : user.contacts
+      }
+
+      res.json(response);
+    }
 
     else
       res.send("Wrong email or password");
-
   });
 }

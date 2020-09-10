@@ -5,15 +5,16 @@ const User = mongoose.model('User', RegisterSchema);
 
 export const deleteContact = (req, res) => {
 
-    User.updateOne(
+    User.update(
         { email: req.body.email },
         { $pull: { contacts: { index: req.body.index} } },
-        (err) => {
+        (err, success) => {
 
             if (err)
                 res.send(err);
 
-            res.send("Deleted");
+            else
+                res.send(success);
         }
     );
 }

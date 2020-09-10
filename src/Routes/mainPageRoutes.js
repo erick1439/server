@@ -8,7 +8,7 @@ const mainPageRoute = (app) => {
         .put((req, res) => 
             res.send('Put request successfull'))
         
-        .delete((req, res) =>
+        .put((req, res) =>
             res.send('delete request successfull'));
 }
 

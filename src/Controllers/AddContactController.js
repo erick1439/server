@@ -5,15 +5,16 @@ const User = mongoose.model('User', RegisterSchema);
 
 export const addContact = (req, res) => {
 
-    User.updateOne(
+    User.update(
         { email: req.body.email }, 
-        { $push: { contacts: req.body.contact } },
-        (err) => {
+        { $push: { contacts: req.body.newContact } },
+        (err, success) => {
 
             if (err) 
                 res.send(err);
-                
-            res.send("Added");
+
+            else
+                res.send(success);
         }
     ); 
 }
